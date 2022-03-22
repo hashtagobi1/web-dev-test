@@ -22,33 +22,17 @@ const Home: NextPage = () => {
           <code className={styles.code}>pages/index.tsx</code>
         </p>
 
-        <div className={styles.grid}>
+        <div
+        className={styles.grid}>
           <a 
-          
-          
-          
           href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
-            <p>Find in-d
-              
-              
-              
-              
-              
-              
-              epth information 
-              
-              
-              about Next.js features and API.</p>
+            <p>Find in-d epth information about Next.js features and API.</p>
           </a>
 
-          <a 
-          
-          
-          href="https://nextjs.org/learn" className={styles.card}>
+          <a href="https://nextjs.org/learn" className={styles.card}>
             <h2>Learn &rarr;</h2>
-            <p>Learn abo
-              ut Next.js in an interactive course with quizzes!</p>
+            <p>Learn abo ut Next.js in an interactive course with quizzes!</p>
           </a>
 
           <a

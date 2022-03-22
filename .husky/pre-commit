@@ -6,7 +6,7 @@ echo 'Running Pre Commit Hooks...👨🏾‍💻\n'
 # Lints staged files... checks what you've changed
 echo '\n Linting staged files... 🐫'
 
-npx lint-staged
+yarn lint-staged
 
 echo '🏗️👷 Styling, testing and building your project before committing'
 

@@ -13,8 +13,8 @@ echo '🏗️👷 Styling, testing and building your project before committing'
 # Check Prettier standards
 yarn check-format ||
 (
-    echo '🤢🤮 It'\''s weak bro. - Poor style, no finesse. 🤢🤮
-            Prettier Check Failed. Run yarn format, add changes and try commit again.';
+    echo '🤢🤮 Woops! FORMAT FAILED. - Poor style, there is no finesse. 🤢🤮
+            PRETTIER CHECK FAILED. Run yarn format, add changes and try commit again.';
     false;
 )
 
@@ -39,7 +39,7 @@ echo '🤔🤔... Ite... Say no more... Code looks good to me... Building... �
 
 yarn run build ||
 (
-    echo '❌❌ Better call Bob... Because your build failed ❌❌
+    echo '❌❌ Better call Bob... Because your build FAILED ❌❌
             Next build failed: View the errors above to see why.'
     false;
 )

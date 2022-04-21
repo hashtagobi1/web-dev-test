@@ -7,7 +7,7 @@ import NavButton from "./NavButton";
 import Section from "./Section";
 import Hero from "./Section/Hero";
 import Info from "./Section/Info";
-
+import Sidebar from "./Sidebar";
 export {
   Layout,
   NavButton,
@@ -18,4 +18,5 @@ export {
   Info,
   CompanyName,
   FooterVerbage,
+  Sidebar,
 };

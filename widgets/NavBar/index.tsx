@@ -1,13 +1,14 @@
 import { Flex, useMediaQuery } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { FaShoppingBasket } from "react-icons/fa";
 import { FcMenu } from "react-icons/fc";
-import { CompanyName, NavButton } from "../../components";
+import { CompanyName, NavButton, Sidebar } from "../../components";
 import CustomIconButton from "../../components/IconButton";
 import { ARIA_CHECKOUT, ARIA_MENU, navItems } from "../../utils/constants";
-
+import theme from "../../utils/theme";
 const NavBar = () => {
   const [isSmallerThan600px] = useMediaQuery("(max-width: 600px)");
+  const [sidebarVisible, setSidebarVisible] = useState<boolean>(false);
 
   const flexPosition = (
     horizontalAlignment: string,
@@ -19,7 +20,7 @@ const NavBar = () => {
     </Flex>
   );
 
-  const icon = () => {
+  const renderBasketIcon = () => {
     return (
       <CustomIconButton
         customAriaLabel={ARIA_CHECKOUT}
@@ -30,20 +31,41 @@ const NavBar = () => {
       />
     );
   };
+
+  const handleMenuClick = () => {
+    setSidebarVisible(!sidebarVisible);
+  };
   return (
     <nav>
-      <Flex p={6} justify={"space-between"} align="center" boxShadow={"lg"}>
+      {sidebarVisible ? (
+        <Sidebar handleClick={handleMenuClick} isVisible={sidebarVisible} />
+      ) : null}
+
+      <Flex
+        position={isSmallerThan600px ? "fixed" : "relative"}
+        top={isSmallerThan600px ? "0px" : undefined}
+        bg={theme.colors.brand.companyWhite}
+        // overflow={"hidden"}
+        width="100%"
+        zIndex={isSmallerThan600px ? 10 : 0}
+        p={6}
+        justify={"space-between"}
+        align="center"
+        boxShadow={"lg"}
+      >
         {flexPosition("start", "center", <CompanyName name="apps" />)}
 
         {isSmallerThan600px ? (
-          <CustomIconButton
-            icon={<FcMenu />}
-            boxSize="0px"
-            customAriaLabel={ARIA_MENU}
-            aria-label={ARIA_MENU}
-            variant="ghost"
-            text={"menu"}
-          />
+          <Flex justify={"end"} align="center">
+            <CustomIconButton
+              icon={<FcMenu />}
+              customAriaLabel={ARIA_MENU}
+              aria-label={ARIA_MENU}
+              variant="ghost"
+              text={"menu"}
+              onClick={handleMenuClick}
+            />
+          </Flex>
         ) : (
           <Flex justify={"end"} align={"center"}>
             {navItems.map((link, i) => (
@@ -54,7 +76,7 @@ const NavBar = () => {
                 text={link.toUpperCase()}
               />
             ))}
-            {flexPosition("end", "center", icon())}
+            {/* {flexPosition("end", "center", renderBasketIcon())} */}
           </Flex>
         )}
       </Flex>

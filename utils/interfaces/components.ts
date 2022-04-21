@@ -39,7 +39,7 @@ export interface Info {
   buttonText: string;
   buttonLink: string;
   withImage?: boolean;
-  image?: string;
+  images?: string[];
   altText?: string;
 }
 
@@ -51,4 +51,9 @@ export interface CompanyName {
 export interface FooterVerbage {
   companyName: string;
   date: Date;
+}
+
+export interface Sidebar {
+  isVisible: boolean;
+  handleClick: () => void;
 }

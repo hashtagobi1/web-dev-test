@@ -10,7 +10,7 @@ const Layout: FC<Layout> = ({ children }) => {
       scrollBehavior={"smooth"}
       direction="column"
       height="100%"
-      bgColor="brand.companyWhite"
+      bgColor="brand.colors.companyWhite"
     >
       <header>
         <NavBar />

@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         buttonLink="/"
         withImage
         altText="picture"
-        image="/images/mountains.png"
+        images={["/images/mountains.png", "/images/hero.png"]}
       />
     </Layout>
   );

@@ -1,7 +1,6 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
-import styles from "../../../styles/components/hero/hero.module.css";
 import { SectionType } from "../../../utils/interfaces/components";
 import theme from "../../../utils/theme";
 import Section from "../index";
@@ -9,7 +8,7 @@ const Hero = () => {
   return (
     <Section pageType={SectionType.Hero} id={"hero"}>
       <Flex justify={"center"} alignItems="center">
-        <Box className={styles.imageBox} position="relative">
+        <Box position="relative">
           <Image
             src={"/images/hero.png"}
             alt="image for main page"
@@ -18,7 +17,6 @@ const Hero = () => {
           />
         </Box>
         <Box
-          className={styles.textBox}
           position="absolute"
           left={{
             base: "5%",

@@ -13,11 +13,13 @@ const CustomIconButton: FC<CustomIconProps> = ({
   text,
   w,
   h,
+  onClick,
 }) => {
   return (
     <Flex justify={"center"} align="center">
       {text ? <Text>{text.toUpperCase()} </Text> : null}
       <IconButton
+        onClick={onClick}
         aria-label={customAriaLabel}
         size={size}
         color={color}

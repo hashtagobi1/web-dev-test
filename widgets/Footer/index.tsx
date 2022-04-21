@@ -48,16 +48,18 @@ const Footer = () => {
           color={theme.colors.brand.companyGreyMain}
         >
           <Flex my={isSmallerThan600px ? 8 : 0}>
-            {socialIcons.map((item, i) => (
-              <CustomIconButton
-                customAriaLabel={item.aria}
-                aria-label={item.aria}
-                key={i}
-                size="lg"
-                icon={<item.icon />}
-                variant="ghost"
-              />
-            ))}
+            <nav>
+              {socialIcons.map((item, i) => (
+                <CustomIconButton
+                  customAriaLabel={item.aria}
+                  aria-label={item.aria}
+                  key={i}
+                  size="lg"
+                  icon={<item.icon />}
+                  variant="ghost"
+                />
+              ))}
+            </nav>
           </Flex>
           <Flex>
             <FooterVerbage companyName="APPS" date={new Date()} />

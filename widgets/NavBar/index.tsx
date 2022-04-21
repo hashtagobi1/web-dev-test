@@ -1,16 +1,13 @@
-import { Flex, Heading, useMediaQuery } from "@chakra-ui/react";
+import { Flex, useMediaQuery } from "@chakra-ui/react";
 import React from "react";
 import { FaShoppingBasket } from "react-icons/fa";
 import { FcMenu } from "react-icons/fc";
-import { NavButton } from "../../components";
+import { CompanyName, NavButton } from "../../components";
 import CustomIconButton from "../../components/IconButton";
-import { navItems } from "../../utils/constants";
+import { ARIA_CHECKOUT, ARIA_MENU, navItems } from "../../utils/constants";
 
 const NavBar = () => {
-  const CHECKOUT_ariaLabel = "checkout";
-  const MENU_ariaLabel = "menu";
-
-  const [isSmallerThan600px] = useMediaQuery("(max-width: 600px) ");
+  const [isSmallerThan600px] = useMediaQuery("(max-width: 600px)");
 
   const flexPosition = (
     horizontalAlignment: string,
@@ -25,9 +22,8 @@ const NavBar = () => {
   const icon = () => {
     return (
       <CustomIconButton
-        customAriaLabel={CHECKOUT_ariaLabel}
-        aria-label={CHECKOUT_ariaLabel}
-        bgColor="blue"
+        customAriaLabel={ARIA_CHECKOUT}
+        aria-label={ARIA_CHECKOUT}
         size="lg"
         icon={<FaShoppingBasket />}
         variant="ghost"
@@ -37,21 +33,26 @@ const NavBar = () => {
   return (
     <nav>
       <Flex p={6} justify={"space-between"} align="center" boxShadow={"lg"}>
-        {flexPosition("start", "center", <Heading as="h1">APPS</Heading>)}
+        {flexPosition("start", "center", <CompanyName name="apps" />)}
 
         {isSmallerThan600px ? (
           <CustomIconButton
             icon={<FcMenu />}
             boxSize="0px"
-            customAriaLabel={MENU_ariaLabel}
-            aria-label={MENU_ariaLabel}
+            customAriaLabel={ARIA_MENU}
+            aria-label={ARIA_MENU}
             variant="ghost"
             text={"menu"}
           />
         ) : (
           <Flex justify={"end"} align={"center"}>
             {navItems.map((link, i) => (
-              <NavButton key={i} link={link} text={link.toUpperCase()} />
+              <NavButton
+                variant="ghost"
+                key={i}
+                link={link}
+                text={link.toUpperCase()}
+              />
             ))}
             {flexPosition("end", "center", icon())}
           </Flex>

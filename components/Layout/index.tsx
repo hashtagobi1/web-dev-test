@@ -1,6 +1,7 @@
 import { Flex } from "@chakra-ui/react";
 import React, { FC } from "react";
 import { Layout } from "../../utils/interfaces/components";
+import { Footer } from "../../widgets";
 import NavBar from "../../widgets/NavBar";
 
 const Layout: FC<Layout> = ({ children }) => {
@@ -17,7 +18,7 @@ const Layout: FC<Layout> = ({ children }) => {
 
       <main>{children}</main>
 
-      <footer>footer</footer>
+      <Footer />
     </Flex>
   );
 };

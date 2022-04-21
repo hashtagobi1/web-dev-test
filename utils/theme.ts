@@ -10,7 +10,7 @@ const theme = extendTheme({
       companyBlue: "#448AFF",
       companyBlack: "#000",
       companyWhite: "#FFF",
-      companyGreyMain: "##757575",
+      companyGreyMain: "#757575",
       companyGreyLight: "#EBEBEB",
       companyPageBackground: "#FAFAFA",
     },

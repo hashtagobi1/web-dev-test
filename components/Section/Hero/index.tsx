@@ -3,8 +3,8 @@ import Image from "next/image";
 import React from "react";
 import styles from "../../../styles/components/hero/hero.module.css";
 import { SectionType } from "../../../utils/interfaces/components";
+import theme from "../../../utils/theme";
 import Section from "../index";
-
 const Hero = () => {
   return (
     <Section pageType={SectionType.Hero} id={"hero"}>
@@ -25,7 +25,7 @@ const Hero = () => {
             md: "15%",
             lg: "20%",
           }}
-          color="red"
+          color={theme.colors.brand.companyWhite}
         >
           <Text mb={2}>APPS unveils new studio</Text>
           <Heading as="h3">Lagom</Heading>

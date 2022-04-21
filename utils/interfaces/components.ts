@@ -11,7 +11,7 @@ export interface CustomButton extends ButtonProps {
   text: string;
 }
 
-export interface NavButton {
+export interface NavButton extends ButtonProps {
   link: string;
   text: string;
 }
@@ -41,4 +41,14 @@ export interface Info {
   withImage?: boolean;
   image?: string;
   altText?: string;
+}
+
+export interface CompanyName {
+  name?: string;
+  image?: string;
+}
+
+export interface FooterVerbage {
+  companyName: string;
+  date: Date;
 }

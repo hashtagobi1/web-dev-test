@@ -11,6 +11,8 @@ const CustomIconButton: FC<CustomIconProps> = ({
   customAriaLabel,
   variant,
   text,
+  w,
+  h,
 }) => {
   return (
     <Flex justify={"center"} align="center">
@@ -21,6 +23,8 @@ const CustomIconButton: FC<CustomIconProps> = ({
         color={color}
         icon={icon}
         variant={variant}
+        w={w}
+        h={h}
       />
     </Flex>
   );

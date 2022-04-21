@@ -10,6 +10,7 @@ const CustomButton: FC<CustomButtonProps> = ({
   color,
   boxShadow,
   _hover,
+  textAlign = "center",
   m = 3,
   ml,
   mb,
@@ -19,6 +20,7 @@ const CustomButton: FC<CustomButtonProps> = ({
 }) => {
   return (
     <Button
+      textAlign={textAlign}
       ml={ml}
       mb={mb}
       mt={mt}

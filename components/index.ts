@@ -1,4 +1,5 @@
 import CustomButton from "./CustomButton";
+import CustomTable from "./CustomTable";
 import FooterVerbage from "./FooterVerbage";
 import CustomIconButton from "./IconButton";
 import Layout from "./Layout";
@@ -19,4 +20,5 @@ export {
   CompanyName,
   FooterVerbage,
   Sidebar,
+  CustomTable,
 };

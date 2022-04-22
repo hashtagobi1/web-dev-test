@@ -1,26 +1,26 @@
 import type { NextPage } from "next";
-import { Hero, Info, Layout } from "../components";
+import { Hero, Info } from "../components";
 
 const Home: NextPage = () => {
   return (
-    <Layout>
+    <>
       <Hero />
       <Info
-        heading="Innovation and experience design agency."
-        subheading="Apps is an innovation and experience design agency. We exist to create a better future with you."
+        heading={`more than just 'clothing'`}
+        subheading="APPS understand that clothes carry with them a certain frequency. feeling low vibrations? high vibration? we supply clothes for all moods."
         buttonText="Products"
-        buttonLink="/"
+        buttonLink="/all-products"
       />
       <Info
         heading="The imaginative application of art and science."
         subheading="Apps is an innovation and experience design agency. We exist to create a better future with you."
         buttonText="Read Latest "
-        buttonLink="/"
+        buttonLink=""
         withImage
         altText="picture"
         images={["/images/mountains.png", "/images/hero.png"]}
       />
-    </Layout>
+    </>
   );
 };
 

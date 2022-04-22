@@ -1,5 +1,6 @@
 import { Heading, useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { FC } from "react";
 import { CompanyName } from "../../utils/interfaces/components";
 
@@ -21,7 +22,11 @@ const CompanyName: FC<CompanyName> = ({ name, image }) => {
     if (!name && !image) return null;
   };
 
-  return <>{renderLogo()}</>;
+  return (
+    <Link passHref href="/">
+      <a>{renderLogo()}</a>
+    </Link>
+  );
 };
 
 export default CompanyName;

@@ -15,6 +15,7 @@ export const ARIA_SOCIAL_GOOGLE_PLUS = "company google plus";
 export const ARIA_SOCIAL_FACEBOOK = "company facebook";
 export const ARIA_SOCIAL_INSTAGRAM = "company instagram";
 export const ARIA_SOCIAL_TWITTER = "company twitter";
+export const ARIA_REMOVE_PRODUCT = "remove product";
 
 /**
  * NAV ITEMS

@@ -1,4 +1,5 @@
 import { Flex, useMediaQuery } from "@chakra-ui/react";
+import Link from "next/link";
 import React, { useState } from "react";
 import { FaShoppingBasket } from "react-icons/fa";
 import { FcMenu } from "react-icons/fc";
@@ -22,13 +23,17 @@ const NavBar = () => {
 
   const renderBasketIcon = () => {
     return (
-      <CustomIconButton
-        customAriaLabel={ARIA_CHECKOUT}
-        aria-label={ARIA_CHECKOUT}
-        size="lg"
-        icon={<FaShoppingBasket />}
-        variant="ghost"
-      />
+      <Link passHref href="/checkout">
+        <a>
+          <CustomIconButton
+            customAriaLabel={ARIA_CHECKOUT}
+            aria-label={ARIA_CHECKOUT}
+            size="lg"
+            icon={<FaShoppingBasket />}
+            variant="ghost"
+          />
+        </a>
+      </Link>
     );
   };
 
@@ -76,7 +81,7 @@ const NavBar = () => {
                 text={link.toUpperCase()}
               />
             ))}
-            {/* {flexPosition("end", "center", renderBasketIcon())} */}
+            {flexPosition("end", "center", renderBasketIcon())}
           </Flex>
         )}
       </Flex>

@@ -17,10 +17,12 @@ const CustomButton: FC<CustomButtonProps> = ({
   mt,
   mr,
   p,
+  size,
 }) => {
   return (
     <Button
       textAlign={textAlign}
+      size={size}
       ml={ml}
       mb={mb}
       mt={mt}

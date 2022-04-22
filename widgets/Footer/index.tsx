@@ -29,15 +29,23 @@ const Footer = () => {
             <CompanyName name="apps" />
           </Flex>
           <Flex direction={"column"}>
-            {extraNavItems.map((item, i) => (
-              <NavButton
-                p={0}
-                variant={"ghost"}
-                text={item}
-                link={item}
-                key={i}
-              />
-            ))}
+            {extraNavItems.map((item, i) => {
+              const renderLink = () => {
+                if (i === extraNavItems.length - 1) {
+                  return "checkout";
+                }
+                return item.toLowerCase();
+              };
+              return (
+                <NavButton
+                  p={0}
+                  variant={"ghost"}
+                  text={item}
+                  link={renderLink()}
+                  key={i}
+                />
+              );
+            })}
           </Flex>
         </Flex>
         <Flex

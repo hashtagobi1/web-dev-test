@@ -5,8 +5,10 @@ import CustomButton from "../CustomButton";
 
 const NavButton: FC<NavButton> = ({ link, text, variant, p, m }) => {
   return (
-    <Link passHref href={`${link.toLowerCase()}`}>
-      <CustomButton m={m} p={p} variant={variant} text={text.toUpperCase()} />
+    <Link passHref href={`/${link.toLowerCase()}`}>
+      <a>
+        <CustomButton m={m} p={p} variant={variant} text={text.toUpperCase()} />
+      </a>
     </Link>
   );
 };

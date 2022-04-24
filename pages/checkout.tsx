@@ -76,6 +76,12 @@ const Checkout: FC<Checkout> = ({ productData, response }) => {
 
   const tableHeadings = ["Product", "Price", "Quantity", "Cost"];
 
+  /**
+   *
+   * @param item the item we are modifying
+   * @param value_num the value of the input
+   * @param sku unique ID
+   */
   const handleChange = (item: CartItem, value_num: number, sku: string) => {
     setUserCart((prev) => {
       let oldArray = [...prev];
@@ -122,12 +128,16 @@ const Checkout: FC<Checkout> = ({ productData, response }) => {
       return oldArray;
     });
   };
+
+  /**
+   * we take a copy of the current state, find the item selected then increment the amount in the users cart.
+   *
+   * if max has been reached, we notify them
+   *
+   * @param recievedProduct -> the updated product from the child
+   * @param newQuantity ->the updated quantity
+   */
   const incrementQTY = (recievedProduct: CartItem, newQuantity: number) => {
-    /**
-     * we take a copy of the current state, find the item selected then increment the amount in the users cart.
-     *
-     * if max has been reached, we notify them
-     */
     setUserCart((prev) => {
       let oldArray = [...prev];
       if (recievedProduct.quantity && recievedProduct.stockLevel) {
@@ -159,14 +169,16 @@ const Checkout: FC<Checkout> = ({ productData, response }) => {
     });
   };
 
-  const decrementQTY = (recievedProduct: CartItem, newQuantity: number) => {
-    /**
-     * we take a copy of the current state, find the item selected then decrement the amount in the users cart.
-     *
-     * if min has been reached, we notify them
-     *
-     */
+  /**
+   * we take a copy of the current state, find the item selected then decrement the amount in the users cart.
+   *
+   * if min has been reached, we notify them
+   *
+   * @param recievedProduct -> the updated product from the child
+   * @param newQuantity ->the updated quantity
+   */
 
+  const decrementQTY = (recievedProduct: CartItem, newQuantity: number) => {
     setUserCart((prev) => {
       let oldArray = [...prev];
       let indexOfProduct: number;
@@ -203,19 +215,21 @@ const Checkout: FC<Checkout> = ({ productData, response }) => {
     }
     return submittedData;
   };
+
+  /**
+   * we fake an transaction by waiting 5 seconds then emptying state.
+   *
+   * we then show the user what they ordered and save this to their local storage.
+   *
+   * We give them the option to make  new transaction, (remove the item from storage)
+   *
+   */
+
   const handleBuyNow = () => {
     setSubmittedData((prev) => {
       return !prev;
     });
 
-    /**
-     * we fake an transaction by waiting 5 seconds then emptying state.
-     *
-     * we then show the user what they ordered and save this to their local storage.
-     *
-     * We give them the option to make  new transaction, (remove the item from storage)
-     *
-     */
     setTimeout(() => {
       setSubmittedData((prev) => {
         return !prev;
@@ -446,6 +460,11 @@ const Checkout: FC<Checkout> = ({ productData, response }) => {
 };
 
 export default Checkout;
+/**
+ *
+ * @param context gives access to route parameters + locale
+ * @returns all the product details
+ */
 export const getStaticProps: GetStaticProps = async (context) => {
   const getAllProducts = groq`*[_type == "product"]`;
   const productData: ProductDetails = await client.fetch(getAllProducts, {});

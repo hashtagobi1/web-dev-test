@@ -75,7 +75,7 @@ N/A
 
 ## Decisions?
 
-See all coding decisions above.
+See all coding decisions above. But generally, I tried to keep it as modular as possible. Creating typings/templates for all components. This ensures reusabiliity across different projects.
 
 ## What you used to develop and test?
 

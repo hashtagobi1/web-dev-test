@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import groq from "groq";
 import { GetStaticProps } from "next";
 import Image from "next/image";
@@ -21,7 +21,7 @@ import { CartItem } from "../utils/interfaces/cart";
 import { Checkout, SectionType } from "../utils/interfaces/components";
 import theme from "../utils/theme";
 
-const Checkout: FC<Checkout> = ({ productData }) => {
+const Checkout: FC<Checkout> = ({ productData, response }) => {
   const [userCart, setUserCart] = useState<CartItem[]>([]);
   const [submittedData, setSubmittedData] = useState<boolean>(false);
   const [reciept, setReciept] = useState<boolean>(false);
@@ -221,13 +221,15 @@ const Checkout: FC<Checkout> = ({ productData }) => {
         return !prev;
       });
 
-      toast({
-        title: "Checkout Complete",
-        description: `Woo! Your items have been ordered! 🛍. Sit back and relax 😎`,
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
+      setTimeout(() => {
+        toast({
+          title: "Checkout Complete",
+          description: `Woo! Your items have been ordered! 🛍. Sit back and relax 😎`,
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+      }, 5000);
 
       setReciept((prev) => {
         return true;
@@ -240,8 +242,16 @@ const Checkout: FC<Checkout> = ({ productData }) => {
             .post(API_PRODUCT, {
               oldArray,
             })
-            .then((res) => {
-              console.log(res.data);
+            .then((res: AxiosResponse<typeof response>) => {
+              if (res.data?.message) {
+                toast({
+                  title: "💰: Transaction Completed!",
+                  description: res.data.message,
+                  status: "success",
+                  duration: 5000,
+                  isClosable: true,
+                });
+              }
             });
         };
         let emptyCart: CartItem[] = [];
@@ -251,10 +261,9 @@ const Checkout: FC<Checkout> = ({ productData }) => {
       });
       setTimeout(() => {
         window.location.reload();
-      }, 300);
-    }, 5000);
+      }, 8000);
+    }, 3000);
   };
-
   /**
    * @returns subtotal after reducing the cartItems Object
    */

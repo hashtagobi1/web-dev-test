@@ -27,20 +27,18 @@ const Home: FC<Home> = () => {
     paths();
   }, [slug]);
 
-  console.log(slug);
-
   return (
     <>
       <Hero />
       <Info
-        heading={`more than just 'clothing'`}
-        subheading="APPS understand that clothes carry with them a certain frequency. feeling low vibrations? high vibration? we supply clothes for all moods."
+        heading={`more than just 'shoes'`}
+        subheading="APPS understand that footwear carry with them a certain frequency. feeling low vibrations? high vibration? we supply kicks for all moods."
         buttonText="surpise shoe"
         buttonLink={`products/${slug}`}
       />
       <Info
         heading="The imaginative application of art and science."
-        subheading="Apps is an innovation and experience design agency. We exist to create a better future with you."
+        subheading="Apps harness the power of nature to create a sustainable experience for your feet."
         buttonText="Read Latest "
         buttonLink=""
         withImage

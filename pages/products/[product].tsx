@@ -31,8 +31,6 @@ const Product: FC<Product> = ({ productData }) => {
   const [isSmallerThan600px] = useMediaQuery("(max-width: 600px)");
 
   const router = useRouter();
-  console.log("route", router.query);
-
   const float = keyframes`
 	0% {
 		box-shadow: 0 5px 15px 0px #56D4D7;

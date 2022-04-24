@@ -90,6 +90,10 @@ export interface CustomTable extends TableProps {
 
 export interface Checkout {
   productData?: Result[];
+  response?: {
+    data?: CartItem[];
+    message?: string;
+  };
 }
 
 export interface Product {

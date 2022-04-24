@@ -5,9 +5,10 @@ export default async function postProducts(
   res: NextApiResponse
 ) {
   if (req.method === "POST") {
-    console.log("req", req.body);
+    console.log("Cart Details", req.body);
   }
   res.status(200).json({
+    message: "Getting order details... ⏰",
     data: req.body,
   });
 }

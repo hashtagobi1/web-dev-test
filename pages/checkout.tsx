@@ -73,7 +73,6 @@ const Checkout: FC<Checkout> = ({ productData, response }) => {
       });
     }
   }, [productData]);
-
   const tableHeadings = ["Product", "Price", "Quantity", "Cost"];
 
   /**
@@ -323,11 +322,11 @@ const Checkout: FC<Checkout> = ({ productData, response }) => {
 
       return (
         <Flex direction={"column"} m={1} justify="center" align={"center"}>
-          {reciept ?? (
+          {reciept ? (
             <Heading fontSize={"xl"} as="h3" mb={3}>
               Coming your way...
             </Heading>
-          )}
+          ) : null}
 
           <Flex
             justify="center"
@@ -391,12 +390,12 @@ const Checkout: FC<Checkout> = ({ productData, response }) => {
               ? "Your Basket"
               : "Wow! You have an empty basket!"}
           </Heading>
-          {userCart.length > 0 ?? (
-            <Text>
+          {userCart.length > 0 ? (
+            <Text fontSize={"sm"} width="75%" mt={4}>
               Items you have added to your basket are shown below. Adjust the
               quantities or remove items before continuing purchase.
             </Text>
-          )}
+          ) : null}
         </Flex>
 
         <Flex direction={"column"} align="center" mt={20}>

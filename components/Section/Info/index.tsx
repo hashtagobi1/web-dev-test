@@ -1,5 +1,4 @@
 import {
-  Button,
   Flex,
   Heading,
   Text,
@@ -9,11 +8,13 @@ import {
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import Link from "next/link";
 import { FC, useState } from "react";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import Section from "..";
+import { ARIA_LEFT_ARROW } from "../../../utils/constants";
 import { Info, SectionType } from "../../../utils/interfaces/components";
 import theme from "../../../utils/theme";
 import CustomButton from "../../CustomButton";
-
+import CustomIconButton from "../../IconButton";
 const Info: FC<Info> = ({
   heading,
   subheading,
@@ -62,9 +63,14 @@ const Info: FC<Info> = ({
       >
         {withImage && images ? (
           <Flex>
-            <Button
+            <CustomIconButton
+              icon={<FaArrowCircleLeft />}
+              customAriaLabel={ARIA_LEFT_ARROW}
+              aria-label={ARIA_LEFT_ARROW}
+              left="5%"
+              size="md"
+              border={"1px solid black"}
               position="absolute"
-              size="xs"
               onClick={() =>
                 setCurrentImage((prev) => {
                   if (prev === 0) {
@@ -73,9 +79,7 @@ const Info: FC<Info> = ({
                   return currentImage - 1;
                 })
               }
-            >
-              Left
-            </Button>
+            />
             <Flex height={500} width={500} zIndex={-1}>
               <AnimatePresence initial={false} exitBeforeEnter>
                 <motion.img
@@ -86,14 +90,16 @@ const Info: FC<Info> = ({
                   initial={"hidden"}
                   variants={variants}
                   animate={"show"}
-                  // altText={""}
-                  // exit={{ opacity: 0 }}
                 />
               </AnimatePresence>
             </Flex>
-            <Button
-              left="20%"
-              size="xs"
+            <CustomIconButton
+              icon={<FaArrowCircleRight />}
+              customAriaLabel={ARIA_LEFT_ARROW}
+              aria-label={ARIA_LEFT_ARROW}
+              border={"1px solid black"}
+              right="5%"
+              size="md"
               position="absolute"
               onClick={() =>
                 setCurrentImage((prev) => {
@@ -103,17 +109,9 @@ const Info: FC<Info> = ({
                   return currentImage + 1;
                 })
               }
-            >
-              Right
-            </Button>
+            />
           </Flex>
         ) : null}
-        {/* position="absolute" left=
-        {{
-          base: "5%",
-          md: "15%",
-          lg: "20%",
-        }} */}
         <Flex
           justify={isSmallerThan600px ? "start" : "center"}
           align={isSmallerThan600px ? "start" : "center"}

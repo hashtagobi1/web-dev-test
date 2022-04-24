@@ -25,6 +25,8 @@ export const ARIA_SOCIAL_FACEBOOK = "company facebook";
 export const ARIA_SOCIAL_INSTAGRAM = "company instagram";
 export const ARIA_SOCIAL_TWITTER = "company twitter";
 export const ARIA_REMOVE_PRODUCT = "remove product";
+export const ARIA_LEFT_ARROW = "change picture left";
+export const ARIA_RIGHT_ARROW = "change picture right";
 
 /**
  * NAV ITEMS

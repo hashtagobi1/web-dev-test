@@ -1,4 +1,11 @@
-import { Flex, Heading, keyframes, Spinner, Text } from "@chakra-ui/react";
+import {
+  Flex,
+  Heading,
+  keyframes,
+  Spinner,
+  Text,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import groq from "groq";
@@ -21,9 +28,11 @@ function urlFor(src: SanityImageSource) {
 }
 
 const Product: FC<Product> = ({ productData }) => {
-  console.log("Data:", productData);
+  const [isSmallerThan600px] = useMediaQuery("(max-width: 600px)");
+
   const router = useRouter();
-  console.log("router", router.query);
+  console.log("route", router.query);
+
   const float = keyframes`
 	0% {
 		box-shadow: 0 5px 15px 0px #56D4D7;
@@ -73,13 +82,13 @@ const Product: FC<Product> = ({ productData }) => {
             transition: "all 1s ease-in-out;",
           }}
           animation={animation()}
-          my={10}
+          my={3}
         >
           <Image
             src={urlFor(productData.defaultProductVariant.images[0]).url()}
-            alt={""}
-            width={500}
-            height={400}
+            alt={`image for ${productData.defaultProductVariant.title}`}
+            width={isSmallerThan600px ? 150 : 500}
+            height={isSmallerThan600px ? 150 : 500}
           />
         </Flex>
 
@@ -114,14 +123,10 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const { product } = context.params as IParams;
-
-  // TODO: so we're either passing undefined or the data
-  console.log(product);
   const getProductViaPathname = groq`*[_type == "product" && slug.current == "${product}"]`;
   const productData: Result[] = await client.fetch(getProductViaPathname, {
     product,
   });
-  console.log("slug", context);
 
   return {
     props: {

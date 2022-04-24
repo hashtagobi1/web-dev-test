@@ -13,12 +13,8 @@ const Section: FC<Section> = ({
     <section id={id}>
       <Flex
         bgColor={customBGColor ? "brand.colors.companyPageBackground" : "none"}
-        width="100vw"
-        height={
-          pageType === SectionType.Hero || SectionType.Checkout
-            ? "90vh"
-            : "100vh"
-        }
+        // maxWidth="100vw"
+        height={pageType === SectionType.Hero ? "90vh" : "100vh"}
         justify={justify}
         align={align}
       >

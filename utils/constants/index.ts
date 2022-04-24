@@ -6,6 +6,15 @@ import {
 } from "react-icons/fa";
 
 /**
+ * STORAGE KEYS
+ */
+export const CUSTOMER_ORDER: string = "APPS_RECEIPT";
+
+/**
+ * ENDPOINTS
+ */
+export const API_PRODUCT: string = "http:///localhost:3000/api/products";
+/**
  * ARIA LABELS
  */
 
@@ -21,7 +30,7 @@ export const ARIA_REMOVE_PRODUCT = "remove product";
  * NAV ITEMS
  */
 
-export const navItems = ["Products", "News", "Contact"];
+export const navItems = ["products", "news", "contact"];
 export const socialIcons = [
   {
     aria: ARIA_SOCIAL_GOOGLE_PLUS,

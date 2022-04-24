@@ -14,6 +14,7 @@ const CustomIconButton: FC<CustomIconProps> = ({
   w,
   h,
   onClick,
+  link,
 }) => {
   return (
     <Flex justify={"center"} align="center">

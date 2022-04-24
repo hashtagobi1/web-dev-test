@@ -31,6 +31,7 @@ const NavBar = () => {
             size="lg"
             icon={<FaShoppingBasket />}
             variant="ghost"
+            link={"checkout"}
           />
         </a>
       </Link>
@@ -47,10 +48,9 @@ const NavBar = () => {
       ) : null}
 
       <Flex
-        position={isSmallerThan600px ? "fixed" : "relative"}
+        position={isSmallerThan600px ? "fixed" : "static"}
         top={isSmallerThan600px ? "0px" : undefined}
         bg={theme.colors.brand.companyWhite}
-        // overflow={"hidden"}
         width="100%"
         zIndex={isSmallerThan600px ? 10 : 0}
         p={6}
@@ -68,6 +68,7 @@ const NavBar = () => {
               aria-label={ARIA_MENU}
               variant="ghost"
               text={"menu"}
+              link={""}
               onClick={handleMenuClick}
             />
           </Flex>

@@ -25,6 +25,7 @@
     "@fontsource/libre-franklin": "^4.5.5",
     "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
+    "axios": "^0.26.1",
     "framer-motion": "^6.3.0",
     "groq": "^2.29.3",
     "next": "12.1.0",

@@ -10,9 +10,13 @@ const CompanyName: FC<CompanyName> = ({ name, image }) => {
   const renderLogo = () => {
     if (name) {
       return (
-        <Heading fontWeight={"thin"} as={isSmallerThan600px ? "h6" : "h1"}>
-          {name.toUpperCase()}
-        </Heading>
+        <Link passHref href="/">
+          <a>
+            <Heading fontWeight={"thin"} as={isSmallerThan600px ? "h6" : "h1"}>
+              {name.toUpperCase()}
+            </Heading>
+          </a>
+        </Link>
       );
     }
 

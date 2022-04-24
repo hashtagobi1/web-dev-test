@@ -4,6 +4,11 @@
 import { ButtonProps, Input, TableProps } from "@chakra-ui/react";
 import { ParsedUrlQuery } from "querystring";
 import { ProductDetails, Result } from "./api/productDetails";
+import { CartItem } from "./cart";
+
+export interface Home {
+  slugList: any[];
+}
 
 export interface Layout {
   children: React.ReactNode;
@@ -22,6 +27,7 @@ export interface NavButton extends ButtonProps {
 export interface CustomIcon {
   customAriaLabel: string;
   text?: string;
+  link?: string;
 }
 
 export enum SectionType {
@@ -29,6 +35,7 @@ export enum SectionType {
   Info = "Info",
   Checkout = "Checkout",
   Product = "Product",
+  FourOhFour = "404",
 }
 
 export interface Section {
@@ -72,17 +79,18 @@ export interface TableStructure {
   cost: number;
 }
 
-// interface UserCost
 export interface CustomTable extends TableProps {
   titles: string[];
-  // rowData: (number | string)[];
-  rowData?: Result[];
-  incrementQTY: () => void;
-  decrementQTY: () => void;
-  setQuantity: React.Dispatch<React.SetStateAction<number>>;
+  rowData?: CartItem[];
+  incrementQTY: (productDetails: CartItem, newQuantity: number) => void;
+  decrementQTY: (productDetails: CartItem, newQuantity: number) => void;
+  handleChange: (item: CartItem, value_num: number, sku: string) => void;
+  deleteRow: (item: CartItem) => void;
 }
 
-export interface Checkout {}
+export interface Checkout {
+  productData?: Result[];
+}
 
 export interface Product {
   productData?: Result;

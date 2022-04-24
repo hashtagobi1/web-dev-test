@@ -1,6 +1,5 @@
 import {
   Flex,
-  useMediaQuery,
   useOutsideClick,
   usePrefersReducedMotion,
 } from "@chakra-ui/react";
@@ -14,10 +13,8 @@ import CustomIconButton from "../IconButton";
 import NavButton from "../NavButton";
 
 const Motion_SideMenu = motion(motion.nav);
-const Motion_Box = motion(motion.div);
 
 const Sidebar: FC<Sidebar> = ({ isVisible, handleClick }) => {
-  const [isSmallerThan600px] = useMediaQuery("(max-width: 600px)");
   const _ref = React.useRef() as React.MutableRefObject<HTMLInputElement>;
 
   const ref = useRef();
@@ -73,14 +70,11 @@ const Sidebar: FC<Sidebar> = ({ isVisible, handleClick }) => {
       isVisible && (
       <Motion_SideMenu
         variants={variants}
-        // initial={"hidden"}
-        // animate={"show"}
-
-        // animate={controls}
         exit={isVisible ? "show" : "hidden"}
         key="sidemenu-container"
       >
         <Flex
+          ref={ref.current}
           bgColor="rgba(0,0,0,.5)"
           width={"100vw"}
           height="100vh"
@@ -92,10 +86,9 @@ const Sidebar: FC<Sidebar> = ({ isVisible, handleClick }) => {
           <Flex
             ref={ref.current}
             boxShadow={"2xl"}
-            // width="100%"
             position={"fixed"}
             top={"1%"}
-            zIndex={999}
+            zIndex={100}
             direction={"column"}
             right="3%"
             p={5}
@@ -105,7 +98,7 @@ const Sidebar: FC<Sidebar> = ({ isVisible, handleClick }) => {
             bg={theme.colors.brand.companyWhite}
             borderRadius="5%"
           >
-            <Flex justify={"end"}>
+            <Flex justify={"end"} zIndex={600}>
               <CustomIconButton
                 icon={<FaWindowClose />}
                 customAriaLabel="close"
@@ -114,18 +107,24 @@ const Sidebar: FC<Sidebar> = ({ isVisible, handleClick }) => {
                 onClick={startAnimation}
               />
             </Flex>
-            {navItems.map((item, i) => (
-              <Motion_Box key={`${item}-button:-${i}`}>
-                <AnimatePresence>
-                  <NavButton variant="ghost" key={i} link={item} text={item} />
-                </AnimatePresence>
-              </Motion_Box>
-            ))}
+            {navItems.map((item, i) => {
+              return (
+                <Flex zIndex={600} key={`${item}-button:-${i}`}>
+                  <NavButton
+                    variant="ghost"
+                    key={i}
+                    link={`${item.toLowerCase()}`}
+                    text={item}
+                  />
+                </Flex>
+              );
+            })}
             <Flex justify={"center"}>
               <CustomIconButton
                 variant="ghost"
                 customAriaLabel={ARIA_CHECKOUT}
                 aria-label={ARIA_CHECKOUT}
+                link="checkout"
                 icon={<FaShoppingBasket />}
               />
             </Flex>

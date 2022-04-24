@@ -65,6 +65,7 @@ const Footer = () => {
                   size="lg"
                   icon={<item.icon />}
                   variant="ghost"
+                  link={item.link}
                 />
               ))}
             </nav>

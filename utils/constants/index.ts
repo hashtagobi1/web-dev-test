@@ -13,7 +13,7 @@ export const CUSTOMER_ORDER: string = "APPS_RECEIPT";
 /**
  * ENDPOINTS
  */
-export const API_PRODUCT: string = "http:///localhost:3000/api/products";
+export const API_PRODUCT: string = "/api/products";
 /**
  * ARIA LABELS
  */

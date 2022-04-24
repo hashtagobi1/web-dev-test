@@ -1,34 +1,92 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Details
+Project has been deployed [here](https://web-dev-test-alpha.vercel.app/).
+The data comes from a CMS, you can play with the data over [here](https://github.com/hashtagobi1/company-cms/tree/main)
 
-First, run the development server:
+# How to run on Dev Env
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. clone the repo via `git clone https://github.com/hashtagobi1/company-cms.git`
+2. Install all the dependencies via `yarn install`
+3. Start development server with `yarn dev` 🚀
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Dependencies
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Styling + Animation
+**Chakra** is a component library that allows you to not only build quickly but have create + maintain consistent theme + brand across your site. Crucial for creating a brand identity. **Framer motion** is used to create clean physics based animation.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Chakra
+- Emotion
+- Framer Motion
+- React Icon
+- FontSource
 
-## Learn More
+## CMS
+**Sanity** is an awesome CMS solution with simple config and is scalable, allowing you to work with multiple people to build quickly.
 
-To learn more about Next.js, take a look at the following resources:
+- Sanity
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## API Calls 📞
 
-## Deploy on Vercel
+I used **groq** to query the data from Sanity schema. **axios** was used to post the cart data to the api. Which returns the data in the body.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- groq
+- axios
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## Code Quality 🔨
+**Husky** allows me to create efficient git hooks that maintain the quality of code being checked in is consistent. **Prettier** allows me to have common formatting allowing future devs to jump into the code with confidence knowing that standards are followed. **Eslint** allows me to find problems easier. **Typescript** is awesome for code management and catching errors that would other wise slow down the progress. It also allowed me to create interfaces for all the required data, thus making coding more predictable.
+
+- eslint
+- prettier
+- husky
+- lint-staged
+- typescript
+
+
+##  Time Spent ⏰
+Around 30hrs
+
+
+## How would you improve this code test?
+
+I'd love to add more animation to make the site more fluid. This is great for user experience and crafting a strong brand identity. Additionally I'd fix 2 bugs. 
+
+The overlay for the side-menu on mobile isn't clickable at the moment which is an issue.
+
+Testing is key, especially when it comes to building applications that will be used by countless people. There are intermittent bugs on the checkout page when calculating the cost. I would've write some unit tests using Jest to ensure that the cost is calculated correctly every single render. Additionally using tools like [BrowserStack](https://www.browserstack.com/) that check cross browser compatibility all help to reach the goal of 
+
+Finally I could have created a customer database that holds user information, cart info, transaction history etc. The [Stripe](https://stripe.com/) system in conjunction with [Postgres](https://www.postgresql.org/) would have been a great way to make that happen.
+
+
+# Questions from Email
+
+## Which Browsers/Devices or Virtualisation services did you check the application in?
+- Brave
+- Safari
+
+## Anything you want to tell us?
+N/A
+
+## Assumptions?
+N/A
+
+## Decisions?
+See all coding decisions above.
+
+## What you used to develop and test?
+See above.
+
+## What did you think of this test/exercise?
+It was a cool exercise! It was fun building out the CMS + components.
+
+## What did you like?
+see above.
+
+## What could be improved?
+N/A
+
+## What didn't you like?
+~~using Sketch~~

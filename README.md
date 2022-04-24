@@ -1,18 +1,18 @@
 
-# Details
+# Details 📽
 Project has been deployed [here](https://web-dev-test-alpha.vercel.app/).
 The data comes from a CMS, you can play with the data over [here](https://github.com/hashtagobi1/company-cms/tree/main)
 
-# How to run on Dev Env
+# How to run on Dev Env 💻
 
 1. clone the repo via `git clone https://github.com/hashtagobi1/company-cms.git`
 2. Install all the dependencies via `yarn install`
 3. Start development server with `yarn dev` 🚀
 
-# Dependencies
+# Dependencies 🌲
 
 
-## Styling + Animation
+## Styling + Animation 🎨
 **Chakra** is a component library that allows you to not only build quickly but have create + maintain consistent theme + brand across your site. Crucial for creating a brand identity. **Framer motion** is used to create clean physics based animation.
 
 - Chakra
@@ -21,7 +21,7 @@ The data comes from a CMS, you can play with the data over [here](https://github
 - React Icon
 - FontSource
 
-## CMS
+## CMS 
 **Sanity** is an awesome CMS solution with simple config and is scalable, allowing you to work with multiple people to build quickly.
 
 - Sanity
@@ -61,7 +61,7 @@ Testing is key, especially when it comes to building applications that will be u
 Finally I could have created a customer database that holds user information, cart info, transaction history etc. The [Stripe](https://stripe.com/) system in conjunction with [Postgres](https://www.postgresql.org/) would have been a great way to make that happen.
 
 
-# Questions from Email
+# Questions from Email 📧
 
 ## Which Browsers/Devices or Virtualisation services did you check the application in?
 - Brave
